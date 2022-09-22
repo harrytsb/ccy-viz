@@ -38,14 +38,13 @@ function Chart({ baseCcy, targetCcy, startDate, endDate }: IProps) {
     let active = true;
     const load = async () => {
       const retrievedData = await fetchExchangeApiData();
-
-      console.log(Object.values(retrievedData.rates));
-
       const xs = Object.keys(retrievedData.rates);
       const ys = Object.values(retrievedData.rates).map((data) => Object.values(data)[0]);
+
       if (!active) {
         return;
       }
+
       setXs(xs);
       setYs(ys);
     };
