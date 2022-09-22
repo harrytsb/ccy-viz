@@ -39,7 +39,7 @@ function Chart({ baseCcy, targetCcy, startDate, endDate }: IProps) {
     const load = async () => {
       const retrievedData = await fetchExchangeApiData();
       const xs = Object.keys(retrievedData.rates);
-      const ys = Object.values(retrievedData.rates).map((data) => Object.values(data)[0]);
+      const ys = Object.values(retrievedData.rates).map((data) => data[targetCcy]);
 
       if (!active) {
         return;
