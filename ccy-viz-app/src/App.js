@@ -1,5 +1,5 @@
 import './App.css';
-import Chart from './charting/chart.tsx';
+import Chart from './charting/chart.jsx';
 
 function App() {
   return (

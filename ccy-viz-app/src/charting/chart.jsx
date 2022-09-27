@@ -1,15 +1,9 @@
 import Plot from 'react-plotly.js';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
-export interface IProps {
-  startDate: string;
-  endDate: string;
-  baseCcy: string;
-  targetCcy: string;
-}
-
-function Chart({ baseCcy, targetCcy, startDate, endDate }: IProps) {
+function Chart({ baseCcy, targetCcy, startDate, endDate }) {
   const myHeaders = new Headers();
   myHeaders.append('apikey', 'OnHP4Wo5ZHrQGktL4s0SGEvTSauIL3nj');
   const [xs, setXs] = useState([]);
@@ -76,5 +70,12 @@ function Chart({ baseCcy, targetCcy, startDate, endDate }: IProps) {
     />
   );
 }
+
+Chart.propTypes = {
+  baseCcy: PropTypes.string,
+  targetCcy: PropTypes.string,
+  startDate: PropTypes.string,
+  endDate: PropTypes.string
+};
 
 export default Chart;
